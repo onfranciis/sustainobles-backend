@@ -1,6 +1,13 @@
+import { connect } from "mongoose";
 import { app } from "./app";
 import config from "./config";
 
-app.listen(config.PORT, () => {
-  console.log(`Server is running on port ${config.PORT}...`);
-});
+connect(config.DB.URL)
+  .then(() => {
+    app.listen(config.PORT, () => {
+      console.log(`Server is running on port ${config.PORT}...`);
+    });
+  })
+  .catch((err) => {
+    console.log(`Invalid URL`);
+  });
