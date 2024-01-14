@@ -3,6 +3,7 @@ import helmet from "helmet";
 import cors from "cors";
 import AddTicket from "./controllers/AddTicket.controller";
 import { json } from "body-parser";
+import GetTicket from "./controllers/GetTicket.controller";
 
 export const app = express();
 
@@ -14,6 +15,7 @@ app.get("/", (req, res) => {
   res.send({ err: null, result: "Connected" });
 });
 
+app.get("/donate", GetTicket);
 app.post("/donate", AddTicket);
 
 app.all("*", (req, res) => {
