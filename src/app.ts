@@ -4,6 +4,7 @@ import cors from "cors";
 import AddTicket from "./controllers/AddTicket.controller";
 import { json } from "body-parser";
 import GetTicket from "./controllers/GetTicket.controller";
+import Auth from "./middleware/Auth.middleware";
 
 export const app = express();
 
@@ -14,6 +15,8 @@ app.use(json());
 app.get("/", (req, res) => {
   res.send({ err: null, result: "Connected" });
 });
+
+app.use(Auth);
 
 app.get("/donate", GetTicket);
 app.post("/donate", AddTicket);
