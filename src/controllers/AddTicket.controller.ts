@@ -20,7 +20,9 @@ const AddTicket: RequestHandler = async (req, res) => {
 
         const { name, phoneNumber, item, date } = addedTicket;
 
-        res.send({ error: null, result: { name, phoneNumber, item, date } });
+        res
+          .status(201)
+          .send({ error: null, result: { name, phoneNumber, item, date } });
       } catch (err) {
         console.log(err);
         res.status(500).send({ error: `Something went wrong`, result: null });
