@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Donation List</title>
+    <meta title="Author" description="Sustainobles"/>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <img src="/static/logo.svg" alt="Sustainobles" />
+
+    <h3>Donation List</h3>
+
+    <div class="table">
+      <div class="tableHeading">
+        <p>Name</p>
+        <p>Phone number</p>
+        <p>Item</p>
+      </div>
+
+      {{#results}}
+        <div class="tableBody">
+          <p class="name">{{name}}</p>
+          <p class="phone">{{phoneNumber}}</p>
+          <p class="item">
+            {{item}}
+          </p>
+        </div>
+      {{/results}}
+    </div>
+
+   
+      
+  </body>
+</html>
