@@ -11,3 +11,7 @@ connect(config.DB.URL)
   .catch((err) => {
     console.log(`Invalid URL`);
   });
+
+process.on("uncaughtException", (err) => {
+  console.log(err);
+});
