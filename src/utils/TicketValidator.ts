@@ -24,7 +24,7 @@ export const TicketValidator = (form: ITicket) => {
       reject({ result: null, error: `Phone number not found` });
     }
 
-    if (!phoneNumber.match(/^(\+234\d{10})|(0\d{10})$/)) {
+    if (!phoneNumber.match(/^(\+234\d{10})$|^(0\d{10})$/)) {
       reject({ result: null, error: `Invalid phone number` });
     }
 
