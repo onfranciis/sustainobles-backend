@@ -21,7 +21,7 @@ app.set("view engine", "mustache");
 app.use("/static", express.static(path.resolve(__dirname, "../public")));
 
 app.get("/", (req, res) => {
-  res.send({ err: null, result: "Connected" });
+  res.send({ error: null, result: "Connected" });
 });
 
 app.use(Auth);
@@ -35,5 +35,5 @@ app.get("/donate/pdf", CreatePDF);
 // app.get("/donate/json", GetTicket);
 
 app.all("*", (req, res) => {
-  res.status(404).send({ err: "Route not found", result: null });
+  res.status(404).send({ error: "Route not found", result: null });
 });
