@@ -1,12 +1,12 @@
 import { ITicket } from "../types/Model.types";
 
 export const TicketValidator = (form: ITicket) => {
-  const { name, item, phoneNumber } = form;
-
   return new Promise((resolve, reject) => {
     if (!form) {
       reject({ result: null, error: `Empty form` });
     }
+
+    const { name, item, phoneNumber } = form;
 
     if (Object.keys(form).length > 3) {
       reject({ result: null, error: `Invalid form format` });
